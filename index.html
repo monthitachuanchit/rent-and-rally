@@ -5,142 +5,319 @@
   <title>Tennis Racquet Rental</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
-    body {
+    /* ----- BASIC STYLES ----- */
+    :root {
+      /* Change this color to your logo's main color if you want */
+      --accent: #1a7fdb;
+      --text-main: #222;
+      --text-muted: #666;
+      --border: #ddd;
+      --bg: #f7f7f7;
+      --white: #ffffff;
+    }
+
+    * {
+      box-sizing: border-box;
       margin: 0;
-      font-family: Arial, sans-serif;
-      background:#f5f5f5;
-      color:#222;
+      padding: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     }
+
+    body {
+      background: var(--bg);
+      color: var(--text-main);
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    /* ----- LAYOUT ----- */
     header {
-      background:#1a7fdb;
-      color:white;
-      padding:12px 20px;
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
     }
-    header h1 {
-      margin:0;
-      font-size:24px;
+
+    .header-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0.75rem 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
     }
+
+    .logo-wrap {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .logo-wrap img {
+      height: 32px; /* adjust to suit your logo */
+      width: auto;
+    }
+
+    .logo-text {
+      font-weight: 600;
+      font-size: 1rem;
+    }
+
     nav a {
-      color:white;
-      text-decoration:none;
-      margin-right:15px;
-      font-size:14px;
+      margin-left: 1rem;
+      font-size: 0.9rem;
+      color: var(--text-muted);
     }
-    .container {
-      max-width:900px;
-      margin:0 auto;
-      padding:20px;
-      background:white;
+
+    nav a:hover {
+      color: var(--accent);
+      text-decoration: none;
     }
-    .section {
-      margin-bottom:30px;
+
+    main {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 1.5rem 1rem 2.5rem;
     }
-    h2 {
-      margin-top:0;
-      border-bottom:1px solid #ddd;
-      padding-bottom:5px;
+
+    section {
+      margin-bottom: 2rem;
+      background: var(--white);
+      border-radius: 6px;
+      border: 1px solid var(--border);
+      padding: 1.1rem 1.2rem;
     }
+
+    h1, h2 {
+      font-size: 1.3rem;
+      margin-bottom: 0.4rem;
+    }
+
+    p {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    .section-description {
+      margin-bottom: 0.8rem;
+    }
+
+    /* ----- INTRO ----- */
+    .intro-title {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .intro-highlight {
+      margin-top: 0.6rem;
+      font-size: 0.9rem;
+      color: var(--text-main);
+    }
+
+    /* ----- RACQUETS ----- */
     .racquet-list {
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-      gap:15px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 0.75rem;
+      margin-top: 0.5rem;
     }
-    .card {
-      border:1px solid #ddd;
-      border-radius:6px;
-      padding:10px;
-      background:#fafafa;
-      font-size:14px;
+
+    .racquet-card {
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 0.75rem;
+      font-size: 0.85rem;
+      background: #fafafa;
     }
-    .card h3 {
-      margin:0 0 5px 0;
-      font-size:16px;
+
+    .racquet-name {
+      font-weight: 600;
+      margin-bottom: 0.15rem;
     }
-    .price {
-      font-weight:bold;
-      color:#1a7fdb;
-      margin-top:5px;
+
+    .racquet-level {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      margin-bottom: 0.25rem;
     }
-    label {
-      display:block;
-      margin-top:8px;
-      font-size:14px;
+
+    .racquet-info {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-bottom: 0.4rem;
     }
-    input, select, button, textarea {
-      width:100%;
-      box-sizing:border-box;
-      padding:6px 8px;
-      margin-top:3px;
-      font-size:14px;
+
+    .racquet-price {
+      font-weight: 600;
+      color: var(--accent);
+      font-size: 0.9rem;
     }
+
+    /* ----- HOW IT WORKS ----- */
+    .steps {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    .steps li {
+      margin-bottom: 0.3rem;
+    }
+
+    /* ----- FORM ----- */
+    form label {
+      display: block;
+      font-size: 0.8rem;
+      margin-top: 0.6rem;
+      margin-bottom: 0.15rem;
+      color: var(--text-main);
+    }
+
+    form input,
+    form select,
+    form textarea {
+      width: 100%;
+      padding: 0.35rem 0.4rem;
+      border-radius: 4px;
+      border: 1px solid var(--border);
+      font-size: 0.85rem;
+    }
+
+    form textarea {
+      resize: vertical;
+    }
+
+    form input:focus,
+    form select:focus,
+    form textarea:focus {
+      outline: none;
+      border-color: var(--accent);
+    }
+
     button {
-      margin-top:12px;
-      background:#1a7fdb;
-      color:white;
-      border:none;
-      cursor:pointer;
-      border-radius:4px;
+      margin-top: 0.9rem;
+      padding: 0.45rem 0.9rem;
+      border-radius: 4px;
+      border: none;
+      background: var(--accent);
+      color: #fff;
+      font-size: 0.9rem;
+      cursor: pointer;
     }
+
     button:hover {
-      background:#155fa8;
+      background: #155fa8; /* slightly darker */
     }
+
     .message {
-      margin-top:8px;
-      font-size:13px;
+      font-size: 0.8rem;
+      margin-top: 0.5rem;
+      min-height: 1em;
     }
-    .success { color:green; }
-    .error { color:red; }
+
+    .success {
+      color: #15803d;
+    }
+
+    .error {
+      color: #b91c1c;
+    }
+
     footer {
-      text-align:center;
-      font-size:12px;
-      color:#666;
-      padding:10px;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0.5rem 1rem 1.5rem;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      text-align: center;
+    }
+
+    @media (max-width: 600px) {
+      .header-inner {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+      }
+
+      nav a {
+        margin-left: 0.6rem;
+      }
     }
   </style>
 </head>
 <body>
   <header>
-    <h1>Tennis Racquet Rental</h1>
-    <nav>
-      <a href="#racquets">Racquets</a>
-      <a href="#how">How it works</a>
-      <a href="#booking">Book now</a>
-    </nav>
+    <div class="header-inner">
+      <!-- Replace logo.png with your real logo file, or remove the <img> if you only use text -->
+      <div class="logo-wrap">
+        <img src="logo.png" alt="Logo" />
+        <div class="logo-text">Tennis Racquet Rental</div>
+      </div>
+      <nav>
+        <a href="#racquets">Racquets</a>
+        <a href="#how">How it works</a>
+        <a href="#booking">Book</a>
+      </nav>
+    </div>
   </header>
 
-  <div class="container">
-    <section class="section" id="intro">
-      <h2>Welcome</h2>
-      <p>Rent high‑quality tennis racquets for a day, a weekend, or a full week. Perfect for beginners, club players, and tournaments.</p>
+  <main>
+    <!-- INTRO -->
+    <section id="intro">
+      <h1 class="intro-title">Rent a tennis racquet in a few simple steps.</h1>
+      <p class="section-description">
+        This is a basic website for your racquet rental service. It is intentionally minimal:
+        clear information, simple layout, and easy for visitors to understand.
+      </p>
+      <p class="intro-highlight">
+        Change any text here to describe your own business, location, and opening hours.
+      </p>
     </section>
 
-    <section class="section" id="racquets">
+    <!-- RACQUETS -->
+    <section id="racquets">
       <h2>Available racquets</h2>
+      <p class="section-description">
+        A few example racquets. You can add more or change the prices later.
+      </p>
       <div class="racquet-list" id="racquetList">
         <!-- Filled by JavaScript -->
       </div>
     </section>
 
-    <section class="section" id="how">
+    <!-- HOW IT WORKS -->
+    <section id="how">
       <h2>How it works</h2>
-      <ol>
-        <li>Choose a racquet model you like.</li>
+      <p class="section-description">
+        Keep the process simple so new customers know exactly what to do.
+      </p>
+      <ol class="steps">
+        <li>Choose a racquet from the list above.</li>
         <li>Fill out the booking form with your dates.</li>
-        <li>We email you to confirm and arrange pickup or delivery.</li>
+        <li>Wait for a confirmation email with pickup details.</li>
       </ol>
     </section>
 
-    <section class="section" id="booking">
+    <!-- BOOKING FORM -->
+    <section id="booking">
       <h2>Book a racquet</h2>
+      <p class="section-description">
+        This form only runs in the browser. In the future, you can connect it to email or a database.
+      </p>
       <form id="bookingForm">
         <label for="racquetSelect">Racquet</label>
         <select id="racquetSelect" required></select>
 
         <label for="name">Your name</label>
-        <input id="name" type="text" required />
+        <input id="name" type="text" placeholder="Full name" required />
 
         <label for="email">Email</label>
-        <input id="email" type="email" required />
+        <input id="email" type="email" placeholder="you@example.com" required />
 
         <label for="start">Start date</label>
         <input id="start" type="date" required />
@@ -149,52 +326,54 @@
         <input id="end" type="date" required />
 
         <label for="notes">Notes (optional)</label>
-        <textarea id="notes" rows="3" placeholder="Grip size preference, string tension, etc."></textarea>
+        <textarea id="notes" rows="3" placeholder="Grip size, where you will play, etc."></textarea>
 
         <button type="submit">Send booking request</button>
         <div id="formMessage" class="message"></div>
       </form>
     </section>
-  </div>
+  </main>
 
   <footer>
-    Demo tennis racquet rental site. Customize this for your own business.
+    Simple demo site for a tennis racquet rental service. You can change the colors to match your logo.
   </footer>
 
   <script>
-    // Simple data for racquets
+    // Very simple data for racquets
     const racquets = [
-      { id: 1, name: "Wilson Pro Staff 97", level: "Advanced", pricePerDay: 12, info: "Control‑focused, for experienced players." },
-      { id: 2, name: "Babolat Pure Drive", level: "Intermediate", pricePerDay: 10, info: "Great power and spin for club players." },
-      { id: 3, name: "Head Radical Team", level: "Beginner", pricePerDay: 8, info: "Lightweight and easy to play with." }
+      { id: 1, name: "Wilson Pro Staff 97", level: "Advanced", pricePerDay: 12, info: "Control-focused racquet for experienced players." },
+      { id: 2, name: "Babolat Pure Drive", level: "Intermediate", pricePerDay: 10, info: "Good power and spin. Suitable for many club players." },
+      { id: 3, name: "Head Radical Team", level: "Beginner", pricePerDay: 8, info: "Lighter racquet that is easier to handle." }
     ];
 
     const racquetList = document.getElementById("racquetList");
     const racquetSelect = document.getElementById("racquetSelect");
 
-    // Show racquets on page
+    // Show racquets on the page and in the dropdown
     racquets.forEach(r => {
+      // Card
       const card = document.createElement("div");
-      card.className = "card";
+      card.className = "racquet-card";
       card.innerHTML = `
-        <h3>${r.name}</h3>
-        <div>Level: ${r.level}</div>
-        <div>${r.info}</div>
-        <div class="price">$${r.pricePerDay} / day</div>
+        <div class="racquet-name">${r.name}</div>
+        <div class="racquet-level">Level: ${r.level}</div>
+        <div class="racquet-info">${r.info}</div>
+        <div class="racquet-price">$${r.pricePerDay} / day</div>
       `;
       racquetList.appendChild(card);
 
+      // Option in select
       const opt = document.createElement("option");
       opt.value = r.id;
       opt.textContent = `${r.name} (${r.level})`;
       racquetSelect.appendChild(opt);
     });
 
-    // Booking form (front‑end only)
+    // Booking form behavior (front-end only)
     const bookingForm = document.getElementById("bookingForm");
     const formMessage = document.getElementById("formMessage");
 
-    bookingForm.addEventListener("submit", function(e) {
+    bookingForm.addEventListener("submit", function (e) {
       e.preventDefault();
       formMessage.textContent = "";
       formMessage.className = "message";
@@ -209,15 +388,17 @@
         formMessage.classList.add("error");
         return;
       }
+
       if (end < start) {
         formMessage.textContent = "End date must be after start date.";
         formMessage.classList.add("error");
         return;
       }
 
-      formMessage.textContent = "Booking request recorded (demo only). In a real site this would be sent to a server.";
+      formMessage.textContent = "Booking request recorded on this demo page. Later, you can connect this to email or a database.";
       formMessage.classList.add("success");
       bookingForm.reset();
+      // keep racquet selection on first option after reset
       racquetSelect.selectedIndex = 0;
     });
   </script>
