@@ -1,241 +1,225 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta http-equiv="Content-Style-Type" content="text/css">
-  <title></title>
-  <meta name="Generator" content="Cocoa HTML Writer">
-  <meta name="CocoaVersion" content="2575.7">
-  <style type="text/css">
-    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
-    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
+  <meta charset="UTF-8" />
+  <title>Tennis Racquet Rental</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background:#f5f5f5;
+      color:#222;
+    }
+    header {
+      background:#1a7fdb;
+      color:white;
+      padding:12px 20px;
+    }
+    header h1 {
+      margin:0;
+      font-size:24px;
+    }
+    nav a {
+      color:white;
+      text-decoration:none;
+      margin-right:15px;
+      font-size:14px;
+    }
+    .container {
+      max-width:900px;
+      margin:0 auto;
+      padding:20px;
+      background:white;
+    }
+    .section {
+      margin-bottom:30px;
+    }
+    h2 {
+      margin-top:0;
+      border-bottom:1px solid #ddd;
+      padding-bottom:5px;
+    }
+    .racquet-list {
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+      gap:15px;
+    }
+    .card {
+      border:1px solid #ddd;
+      border-radius:6px;
+      padding:10px;
+      background:#fafafa;
+      font-size:14px;
+    }
+    .card h3 {
+      margin:0 0 5px 0;
+      font-size:16px;
+    }
+    .price {
+      font-weight:bold;
+      color:#1a7fdb;
+      margin-top:5px;
+    }
+    label {
+      display:block;
+      margin-top:8px;
+      font-size:14px;
+    }
+    input, select, button, textarea {
+      width:100%;
+      box-sizing:border-box;
+      padding:6px 8px;
+      margin-top:3px;
+      font-size:14px;
+    }
+    button {
+      margin-top:12px;
+      background:#1a7fdb;
+      color:white;
+      border:none;
+      cursor:pointer;
+      border-radius:4px;
+    }
+    button:hover {
+      background:#155fa8;
+    }
+    .message {
+      margin-top:8px;
+      font-size:13px;
+    }
+    .success { color:green; }
+    .error { color:red; }
+    footer {
+      text-align:center;
+      font-size:12px;
+      color:#666;
+      padding:10px;
+    }
   </style>
 </head>
 <body>
-<p class="p1">&lt;!DOCTYPE html&gt;</p>
-<p class="p1">&lt;html lang="en"&gt;</p>
-<p class="p1">&lt;head&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;meta charset="UTF-8" /&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;title&gt;Tennis Racquet Rental&lt;/title&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1" /&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;style&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>body {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>margin: 0;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>font-family: Arial, sans-serif;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>background:#f5f5f5;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>color:#222;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>header {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>background:#1a7fdb;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>color:white;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>padding:12px 20px;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>header h1 {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>margin:0;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>font-size:24px;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>nav a {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>color:white;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>text-decoration:none;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>margin-right:15px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>font-size:14px;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.container {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>max-width:900px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>margin:0 auto;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>padding:20px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>background:white;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.section {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>margin-bottom:30px;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>h2 {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>margin-top:0;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>border-bottom:1px solid #ddd;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>padding-bottom:5px;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.racquet-list {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>display:grid;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>grid-template-columns:repeat(auto-fit,minmax(220px,1fr));</p>
-<p class="p1"><span class="Apple-converted-space">      </span>gap:15px;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.card {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>border:1px solid #ddd;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>border-radius:6px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>padding:10px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>background:#fafafa;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>font-size:14px;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.card h3 {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>margin:0 0 5px 0;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>font-size:16px;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.price {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>font-weight:bold;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>color:#1a7fdb;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>margin-top:5px;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>label {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>display:block;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>margin-top:8px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>font-size:14px;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>input, select, button, textarea {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>width:100%;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>box-sizing:border-box;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>padding:6px 8px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>margin-top:3px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>font-size:14px;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>button {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>margin-top:12px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>background:#1a7fdb;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>color:white;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>border:none;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>cursor:pointer;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>border-radius:4px;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>button:hover {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>background:#155fa8;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.message {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>margin-top:8px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>font-size:13px;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.success { color:green; }</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.error { color:red; }</p>
-<p class="p1"><span class="Apple-converted-space">    </span>footer {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>text-align:center;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>font-size:12px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>color:#666;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>padding:10px;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;/style&gt;</p>
-<p class="p1">&lt;/head&gt;</p>
-<p class="p1">&lt;body&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;header&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;h1&gt;Tennis Racquet Rental&lt;/h1&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;nav&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;a href="#racquets"&gt;Racquets&lt;/a&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;a href="#how"&gt;How it works&lt;/a&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;a href="#booking"&gt;Book now&lt;/a&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/nav&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;/header&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="container"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;section class="section" id="intro"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;h2&gt;Welcome&lt;/h2&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;p&gt;Rent high‑quality tennis racquets for a day, a weekend, or a full week. Perfect for beginners, club players, and tournaments.&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/section&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;section class="section" id="racquets"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;h2&gt;Available racquets&lt;/h2&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="racquet-list" id="racquetList"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;!-- Filled by JavaScript --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/section&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;section class="section" id="how"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;h2&gt;How it works&lt;/h2&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;ol&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;li&gt;Choose a racquet model you like.&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;li&gt;Fill out the booking form with your dates.&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;li&gt;We email you to confirm and arrange pickup or delivery.&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;/ol&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/section&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;section class="section" id="booking"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;h2&gt;Book a racquet&lt;/h2&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;form id="bookingForm"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;label for="racquetSelect"&gt;Racquet&lt;/label&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;select id="racquetSelect" required&gt;&lt;/select&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;label for="name"&gt;Your name&lt;/label&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;input id="name" type="text" required /&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;label for="email"&gt;Email&lt;/label&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;input id="email" type="email" required /&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;label for="start"&gt;Start date&lt;/label&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;input id="start" type="date" required /&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;label for="end"&gt;End date&lt;/label&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;input id="end" type="date" required /&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;label for="notes"&gt;Notes (optional)&lt;/label&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;textarea id="notes" rows="3" placeholder="Grip size preference, string tension, etc."&gt;&lt;/textarea&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;button type="submit"&gt;Send booking request&lt;/button&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div id="formMessage" class="message"&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;/form&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/section&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;footer&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>Demo tennis racquet rental site. Customize this for your own business.</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;/footer&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;script&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>// Simple data for racquets</p>
-<p class="p1"><span class="Apple-converted-space">    </span>const racquets = [</p>
-<p class="p1"><span class="Apple-converted-space">      </span>{ id: 1, name: "Wilson Pro Staff 97", level: "Advanced", pricePerDay: 12, info: "Control‑focused, for experienced players." },</p>
-<p class="p1"><span class="Apple-converted-space">      </span>{ id: 2, name: "Babolat Pure Drive", level: "Intermediate", pricePerDay: 10, info: "Great power and spin for club players." },</p>
-<p class="p1"><span class="Apple-converted-space">      </span>{ id: 3, name: "Head Radical Team", level: "Beginner", pricePerDay: 8, info: "Lightweight and easy to play with." }</p>
-<p class="p1"><span class="Apple-converted-space">    </span>];</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>const racquetList = document.getElementById("racquetList");</p>
-<p class="p1"><span class="Apple-converted-space">    </span>const racquetSelect = document.getElementById("racquetSelect");</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>// Show racquets on page</p>
-<p class="p1"><span class="Apple-converted-space">    </span>racquets.forEach(r =&gt; {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>const card = document.createElement("div");</p>
-<p class="p1"><span class="Apple-converted-space">      </span>card.className = "card";</p>
-<p class="p1"><span class="Apple-converted-space">      </span>card.innerHTML = `</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;h3&gt;${r.name}&lt;/h3&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div&gt;Level: ${r.level}&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div&gt;${r.info}&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="price"&gt;$${r.pricePerDay} / day&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>`;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>racquetList.appendChild(card);</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">      </span>const opt = document.createElement("option");</p>
-<p class="p1"><span class="Apple-converted-space">      </span>opt.value = r.id;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>opt.textContent = `${r.name} (${r.level})`;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>racquetSelect.appendChild(opt);</p>
-<p class="p1"><span class="Apple-converted-space">    </span>});</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>// Booking form (front‑end only)</p>
-<p class="p1"><span class="Apple-converted-space">    </span>const bookingForm = document.getElementById("bookingForm");</p>
-<p class="p1"><span class="Apple-converted-space">    </span>const formMessage = document.getElementById("formMessage");</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>bookingForm.addEventListener("submit", function(e) {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>e.preventDefault();</p>
-<p class="p1"><span class="Apple-converted-space">      </span>formMessage.textContent = "";</p>
-<p class="p1"><span class="Apple-converted-space">      </span>formMessage.className = "message";</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">      </span>const name = document.getElementById("name").value.trim();</p>
-<p class="p1"><span class="Apple-converted-space">      </span>const email = document.getElementById("email").value.trim();</p>
-<p class="p1"><span class="Apple-converted-space">      </span>const start = document.getElementById("start").value;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>const end = document.getElementById("end").value;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">      </span>if (!name || !email || !start || !end) {</p>
-<p class="p1"><span class="Apple-converted-space">        </span>formMessage.textContent = "Please fill in all required fields.";</p>
-<p class="p1"><span class="Apple-converted-space">        </span>formMessage.classList.add("error");</p>
-<p class="p1"><span class="Apple-converted-space">        </span>return;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>}</p>
-<p class="p1"><span class="Apple-converted-space">      </span>if (end &lt; start) {</p>
-<p class="p1"><span class="Apple-converted-space">        </span>formMessage.textContent = "End date must be after start date.";</p>
-<p class="p1"><span class="Apple-converted-space">        </span>formMessage.classList.add("error");</p>
-<p class="p1"><span class="Apple-converted-space">        </span>return;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">      </span>formMessage.textContent = "Booking request recorded (demo only). In a real site this would be sent to a server.";</p>
-<p class="p1"><span class="Apple-converted-space">      </span>formMessage.classList.add("success");</p>
-<p class="p1"><span class="Apple-converted-space">      </span>bookingForm.reset();</p>
-<p class="p1"><span class="Apple-converted-space">      </span>racquetSelect.selectedIndex = 0;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>});</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;/script&gt;</p>
-<p class="p1">&lt;/body&gt;</p>
-<p class="p1">&lt;/html&gt;</p>
+  <header>
+    <h1>Tennis Racquet Rental</h1>
+    <nav>
+      <a href="#racquets">Racquets</a>
+      <a href="#how">How it works</a>
+      <a href="#booking">Book now</a>
+    </nav>
+  </header>
+
+  <div class="container">
+    <section class="section" id="intro">
+      <h2>Welcome</h2>
+      <p>Rent high‑quality tennis racquets for a day, a weekend, or a full week. Perfect for beginners, club players, and tournaments.</p>
+    </section>
+
+    <section class="section" id="racquets">
+      <h2>Available racquets</h2>
+      <div class="racquet-list" id="racquetList">
+        <!-- Filled by JavaScript -->
+      </div>
+    </section>
+
+    <section class="section" id="how">
+      <h2>How it works</h2>
+      <ol>
+        <li>Choose a racquet model you like.</li>
+        <li>Fill out the booking form with your dates.</li>
+        <li>We email you to confirm and arrange pickup or delivery.</li>
+      </ol>
+    </section>
+
+    <section class="section" id="booking">
+      <h2>Book a racquet</h2>
+      <form id="bookingForm">
+        <label for="racquetSelect">Racquet</label>
+        <select id="racquetSelect" required></select>
+
+        <label for="name">Your name</label>
+        <input id="name" type="text" required />
+
+        <label for="email">Email</label>
+        <input id="email" type="email" required />
+
+        <label for="start">Start date</label>
+        <input id="start" type="date" required />
+
+        <label for="end">End date</label>
+        <input id="end" type="date" required />
+
+        <label for="notes">Notes (optional)</label>
+        <textarea id="notes" rows="3" placeholder="Grip size preference, string tension, etc."></textarea>
+
+        <button type="submit">Send booking request</button>
+        <div id="formMessage" class="message"></div>
+      </form>
+    </section>
+  </div>
+
+  <footer>
+    Demo tennis racquet rental site. Customize this for your own business.
+  </footer>
+
+  <script>
+    // Simple data for racquets
+    const racquets = [
+      { id: 1, name: "Wilson Pro Staff 97", level: "Advanced", pricePerDay: 12, info: "Control‑focused, for experienced players." },
+      { id: 2, name: "Babolat Pure Drive", level: "Intermediate", pricePerDay: 10, info: "Great power and spin for club players." },
+      { id: 3, name: "Head Radical Team", level: "Beginner", pricePerDay: 8, info: "Lightweight and easy to play with." }
+    ];
+
+    const racquetList = document.getElementById("racquetList");
+    const racquetSelect = document.getElementById("racquetSelect");
+
+    // Show racquets on page
+    racquets.forEach(r => {
+      const card = document.createElement("div");
+      card.className = "card";
+      card.innerHTML = `
+        <h3>${r.name}</h3>
+        <div>Level: ${r.level}</div>
+        <div>${r.info}</div>
+        <div class="price">$${r.pricePerDay} / day</div>
+      `;
+      racquetList.appendChild(card);
+
+      const opt = document.createElement("option");
+      opt.value = r.id;
+      opt.textContent = `${r.name} (${r.level})`;
+      racquetSelect.appendChild(opt);
+    });
+
+    // Booking form (front‑end only)
+    const bookingForm = document.getElementById("bookingForm");
+    const formMessage = document.getElementById("formMessage");
+
+    bookingForm.addEventListener("submit", function(e) {
+      e.preventDefault();
+      formMessage.textContent = "";
+      formMessage.className = "message";
+
+      const name = document.getElementById("name").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const start = document.getElementById("start").value;
+      const end = document.getElementById("end").value;
+
+      if (!name || !email || !start || !end) {
+        formMessage.textContent = "Please fill in all required fields.";
+        formMessage.classList.add("error");
+        return;
+      }
+      if (end < start) {
+        formMessage.textContent = "End date must be after start date.";
+        formMessage.classList.add("error");
+        return;
+      }
+
+      formMessage.textContent = "Booking request recorded (demo only). In a real site this would be sent to a server.";
+      formMessage.classList.add("success");
+      bookingForm.reset();
+      racquetSelect.selectedIndex = 0;
+    });
+  </script>
 </body>
 </html>
