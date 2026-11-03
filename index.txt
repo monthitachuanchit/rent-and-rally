@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Tennis Racquet Rental</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background:#f5f5f5;
+      color:#222;
+    }
+    header {
+      background:#1a7fdb;
+      color:white;
+      padding:12px 20px;
+    }
+    header h1 {
+      margin:0;
+      font-size:24px;
+    }
+    nav a {
+      color:white;
+      text-decoration:none;
+      margin-right:15px;
+      font-size:14px;
+    }
+    .container {
+      max-width:900px;
+      margin:0 auto;
+      padding:20px;
+      background:white;
+    }
+    .section {
+      margin-bottom:30px;
+    }
+    h2 {
+      margin-top:0;
+      border-bottom:1px solid #ddd;
+      padding-bottom:5px;
+    }
+    .racquet-list {
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+      gap:15px;
+    }
+    .card {
+      border:1px solid #ddd;
+      border-radius:6px;
+      padding:10px;
+      background:#fafafa;
+      font-size:14px;
+    }
+    .card h3 {
+      margin:0 0 5px 0;
+      font-size:16px;
+    }
+    .price {
+      font-weight:bold;
+      color:#1a7fdb;
+      margin-top:5px;
+    }
+    label {
+      display:block;
+      margin-top:8px;
+      font-size:14px;
+    }
+    input, select, button, textarea {
+      width:100%;
+      box-sizing:border-box;
+      padding:6px 8px;
+      margin-top:3px;
+      font-size:14px;
+    }
+    button {
+      margin-top:12px;
+      background:#1a7fdb;
+      color:white;
+      border:none;
+      cursor:pointer;
+      border-radius:4px;
+    }
+    button:hover {
+      background:#155fa8;
+    }
+    .message {
+      margin-top:8px;
+      font-size:13px;
+    }
+    .success { color:green; }
+    .error { color:red; }
+    footer {
+      text-align:center;
+      font-size:12px;
+      color:#666;
+      padding:10px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Tennis Racquet Rental</h1>
+    <nav>
+      <a href="#racquets">Racquets</a>
+      <a href="#how">How it works</a>
+      <a href="#booking">Book now</a>
+    </nav>
+  </header>
+
+  <div class="container">
+    <section class="section" id="intro">
+      <h2>Welcome</h2>
+      <p>Rent high‑quality tennis racquets for a day, a weekend, or a full week. Perfect for beginners, club players, and tournaments.</p>
+    </section>
+
+    <section class="section" id="racquets">
+      <h2>Available racquets</h2>
+      <div class="racquet-list" id="racquetList">
+        <!-- Filled by JavaScript -->
+      </div>
+    </section>
+
+    <section class="section" id="how">
+      <h2>How it works</h2>
+      <ol>
+        <li>Choose a racquet model you like.</li>
+        <li>Fill out the booking form with your dates.</li>
+        <li>We email you to confirm and arrange pickup or delivery.</li>
+      </ol>
+    </section>
+
+    <section class="section" id="booking">
+      <h2>Book a racquet</h2>
+      <form id="bookingForm">
+        <label for="racquetSelect">Racquet</label>
+        <select id="racquetSelect" required></select>
+
+        <label for="name">Your name</label>
+        <input id="name" type="text" required />
+
+        <label for="email">Email</label>
+        <input id="email" type="email" required />
+
+        <label for="start">Start date</label>
+        <input id="start" type="date" required />
+
+        <label for="end">End date</label>
+        <input id="end" type="date" required />
+
+        <label for="notes">Notes (optional)</label>
+        <textarea id="notes" rows="3" placeholder="Grip size preference, string tension, etc."></textarea>
+
+        <button type="submit">Send booking request</button>
+        <div id="formMessage" class="message"></div>
+      </form>
+    </section>
+  </div>
+
+  <footer>
+    Demo tennis racquet rental site. Customize this for your own business.
+  </footer>
+
+  <script>
+    // Simple data for racquets
+    const racquets = [
+      { id: 1, name: "Wilson Pro Staff 97", level: "Advanced", pricePerDay: 12, info: "Control‑focused, for experienced players." },
+      { id: 2, name: "Babolat Pure Drive", level: "Intermediate", pricePerDay: 10, info: "Great power and spin for club players." },
+      { id: 3, name: "Head Radical Team", level: "Beginner", pricePerDay: 8, info: "Lightweight and easy to play with." }
+    ];
+
+    const racquetList = document.getElementById("racquetList");
+    const racquetSelect = document.getElementById("racquetSelect");
+
+    // Show racquets on page
+    racquets.forEach(r => {
+      const card = document.createElement("div");
+      card.className = "card";
+      card.innerHTML = `
+        <h3>${r.name}</h3>
+        <div>Level: ${r.level}</div>
+        <div>${r.info}</div>
+        <div class="price">$${r.pricePerDay} / day</div>
+      `;
+      racquetList.appendChild(card);
+
+      const opt = document.createElement("option");
+      opt.value = r.id;
+      opt.textContent = `${r.name} (${r.level})`;
+      racquetSelect.appendChild(opt);
+    });
+
+    // Booking form (front‑end only)
+    const bookingForm = document.getElementById("bookingForm");
+    const formMessage = document.getElementById("formMessage");
+
+    bookingForm.addEventListener("submit", function(e) {
+      e.preventDefault();
+      formMessage.textContent = "";
+      formMessage.className = "message";
+
+      const name = document.getElementById("name").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const start = document.getElementById("start").value;
+      const end = document.getElementById("end").value;
+
+      if (!name || !email || !start || !end) {
+        formMessage.textContent = "Please fill in all required fields.";
+        formMessage.classList.add("error");
+        return;
+      }
+      if (end < start) {
+        formMessage.textContent = "End date must be after start date.";
+        formMessage.classList.add("error");
+        return;
+      }
+
+      formMessage.textContent = "Booking request recorded (demo only). In a real site this would be sent to a server.";
+      formMessage.classList.add("success");
+      bookingForm.reset();
+      racquetSelect.selectedIndex = 0;
+    });
+  </script>
+</body>
+</html>
