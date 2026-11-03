@@ -5,15 +5,14 @@
   <title>Tennis Racquet Rental</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
-    /* ----- BASIC STYLES ----- */
     :root {
-      /* Change this color to your logo's main color if you want */
-      --accent: #1a7fdb;
-      --text-main: #222;
-      --text-muted: #666;
-      --border: #ddd;
-      --bg: #f7f7f7;
-      --white: #ffffff;
+      --green-dark: #0A3E30;
+      --green-light: #B5CE59;
+      --bg-main: #FAF9ED;
+      --bg-card: #FCFCFA;
+      --text-main: #1f2933;
+      --text-muted: #6b7280;
+      --border: #e2e2d8;
     }
 
     * {
@@ -24,22 +23,21 @@
     }
 
     body {
-      background: var(--bg);
+      background: var(--bg-main);
       color: var(--text-main);
     }
 
     a {
-      color: var(--accent);
+      color: var(--green-dark);
       text-decoration: none;
     }
-
     a:hover {
       text-decoration: underline;
     }
 
-    /* ----- LAYOUT ----- */
+    /* Header */
     header {
-      background: var(--white);
+      background: var(--bg-card);
       border-bottom: 1px solid var(--border);
     }
 
@@ -59,13 +57,14 @@
     }
 
     .logo-wrap img {
-      height: 32px; /* adjust to suit your logo */
+      height: 32px;
       width: auto;
     }
 
     .logo-text {
       font-weight: 600;
       font-size: 1rem;
+      color: var(--green-dark);
     }
 
     nav a {
@@ -73,12 +72,12 @@
       font-size: 0.9rem;
       color: var(--text-muted);
     }
-
     nav a:hover {
-      color: var(--accent);
+      color: var(--green-dark);
       text-decoration: none;
     }
 
+    /* Layout */
     main {
       max-width: 900px;
       margin: 0 auto;
@@ -87,7 +86,7 @@
 
     section {
       margin-bottom: 2rem;
-      background: var(--white);
+      background: var(--bg-card);
       border-radius: 6px;
       border: 1px solid var(--border);
       padding: 1.1rem 1.2rem;
@@ -96,6 +95,11 @@
     h1, h2 {
       font-size: 1.3rem;
       margin-bottom: 0.4rem;
+      color: var(--green-dark);
+    }
+
+    .intro-title {
+      font-size: 1.5rem;
     }
 
     p {
@@ -108,19 +112,13 @@
       margin-bottom: 0.8rem;
     }
 
-    /* ----- INTRO ----- */
-    .intro-title {
-      font-size: 1.5rem;
-      margin-bottom: 0.5rem;
-    }
-
     .intro-highlight {
       margin-top: 0.6rem;
       font-size: 0.9rem;
       color: var(--text-main);
     }
 
-    /* ----- RACQUETS ----- */
+    /* Racquets */
     .racquet-list {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -133,12 +131,13 @@
       border-radius: 4px;
       padding: 0.75rem;
       font-size: 0.85rem;
-      background: #fafafa;
+      background: #ffffff;
     }
 
     .racquet-name {
       font-weight: 600;
       margin-bottom: 0.15rem;
+      color: var(--green-dark);
     }
 
     .racquet-level {
@@ -155,21 +154,22 @@
 
     .racquet-price {
       font-weight: 600;
-      color: var(--accent);
+      color: var(--green-dark);
       font-size: 0.9rem;
     }
 
-    /* ----- HOW IT WORKS ----- */
+    /* How it works */
     .steps {
       font-size: 0.9rem;
       color: var(--text-muted);
+      padding-left: 1.1rem;
     }
 
     .steps li {
       margin-bottom: 0.3rem;
     }
 
-    /* ----- FORM ----- */
+    /* Form */
     form label {
       display: block;
       font-size: 0.8rem;
@@ -186,6 +186,7 @@
       border-radius: 4px;
       border: 1px solid var(--border);
       font-size: 0.85rem;
+      background: #ffffff;
     }
 
     form textarea {
@@ -196,7 +197,8 @@
     form select:focus,
     form textarea:focus {
       outline: none;
-      border-color: var(--accent);
+      border-color: var(--green-light);
+      box-shadow: 0 0 0 1px rgba(181, 206, 89, 0.6);
     }
 
     button {
@@ -204,14 +206,14 @@
       padding: 0.45rem 0.9rem;
       border-radius: 4px;
       border: none;
-      background: var(--accent);
+      background: var(--green-dark);
       color: #fff;
       font-size: 0.9rem;
       cursor: pointer;
     }
 
     button:hover {
-      background: #155fa8; /* slightly darker */
+      background: #06291f;
     }
 
     .message {
@@ -219,14 +221,8 @@
       margin-top: 0.5rem;
       min-height: 1em;
     }
-
-    .success {
-      color: #15803d;
-    }
-
-    .error {
-      color: #b91c1c;
-    }
+    .success { color: #15803d; }
+    .error { color: #b91c1c; }
 
     footer {
       max-width: 900px;
@@ -243,7 +239,6 @@
         align-items: flex-start;
         gap: 0.5rem;
       }
-
       nav a {
         margin-left: 0.6rem;
       }
@@ -253,7 +248,7 @@
 <body>
   <header>
     <div class="header-inner">
-      <!-- Replace logo.png with your real logo file, or remove the <img> if you only use text -->
+      <!-- Replace logo.png with your real logo file name -->
       <div class="logo-wrap">
         <img src="logo.png" alt="Logo" />
         <div class="logo-text">Tennis Racquet Rental</div>
@@ -271,11 +266,12 @@
     <section id="intro">
       <h1 class="intro-title">Rent a tennis racquet in a few simple steps.</h1>
       <p class="section-description">
-        This is a basic website for your racquet rental service. It is intentionally minimal:
-        clear information, simple layout, and easy for visitors to understand.
+        Clear information, simple layout, and colors based on your brand.
+        Adjust any text here to describe your own service.
       </p>
       <p class="intro-highlight">
-        Change any text here to describe your own business, location, and opening hours.
+        Example: “We rent racquets in [your city], with daily and weekend prices.
+        Pick up at our shop or at the courts.”
       </p>
     </section>
 
@@ -283,7 +279,7 @@
     <section id="racquets">
       <h2>Available racquets</h2>
       <p class="section-description">
-        A few example racquets. You can add more or change the prices later.
+        Example racquets and prices. Change the names, levels or prices in the code below.
       </p>
       <div class="racquet-list" id="racquetList">
         <!-- Filled by JavaScript -->
@@ -294,12 +290,12 @@
     <section id="how">
       <h2>How it works</h2>
       <p class="section-description">
-        Keep the process simple so new customers know exactly what to do.
+        Keep the booking steps short and easy to follow.
       </p>
       <ol class="steps">
         <li>Choose a racquet from the list above.</li>
-        <li>Fill out the booking form with your dates.</li>
-        <li>Wait for a confirmation email with pickup details.</li>
+        <li>Fill out the booking form with your dates and contact details.</li>
+        <li>We confirm by email and share pickup information.</li>
       </ol>
     </section>
 
@@ -307,7 +303,7 @@
     <section id="booking">
       <h2>Book a racquet</h2>
       <p class="section-description">
-        This form only runs in the browser. In the future, you can connect it to email or a database.
+        This form is only on the front end. Later, you can connect it to email or a database.
       </p>
       <form id="bookingForm">
         <label for="racquetSelect">Racquet</label>
@@ -326,7 +322,7 @@
         <input id="end" type="date" required />
 
         <label for="notes">Notes (optional)</label>
-        <textarea id="notes" rows="3" placeholder="Grip size, where you will play, etc."></textarea>
+        <textarea id="notes" rows="3" placeholder="Grip size, where you play, etc."></textarea>
 
         <button type="submit">Send booking request</button>
         <div id="formMessage" class="message"></div>
@@ -335,11 +331,11 @@
   </main>
 
   <footer>
-    Simple demo site for a tennis racquet rental service. You can change the colors to match your logo.
+    Simple demo site for a tennis racquet rental service. Colors use your brand palette.
   </footer>
 
   <script>
-    // Very simple data for racquets
+    // Basic racquet data
     const racquets = [
       { id: 1, name: "Wilson Pro Staff 97", level: "Advanced", pricePerDay: 12, info: "Control-focused racquet for experienced players." },
       { id: 2, name: "Babolat Pure Drive", level: "Intermediate", pricePerDay: 10, info: "Good power and spin. Suitable for many club players." },
@@ -349,9 +345,8 @@
     const racquetList = document.getElementById("racquetList");
     const racquetSelect = document.getElementById("racquetSelect");
 
-    // Show racquets on the page and in the dropdown
+    // Render racquets
     racquets.forEach(r => {
-      // Card
       const card = document.createElement("div");
       card.className = "racquet-card";
       card.innerHTML = `
@@ -362,14 +357,13 @@
       `;
       racquetList.appendChild(card);
 
-      // Option in select
       const opt = document.createElement("option");
       opt.value = r.id;
       opt.textContent = `${r.name} (${r.level})`;
       racquetSelect.appendChild(opt);
     });
 
-    // Booking form behavior (front-end only)
+    // Booking form behavior
     const bookingForm = document.getElementById("bookingForm");
     const formMessage = document.getElementById("formMessage");
 
@@ -395,10 +389,9 @@
         return;
       }
 
-      formMessage.textContent = "Booking request recorded on this demo page. Later, you can connect this to email or a database.";
+      formMessage.textContent = "Booking request recorded on this demo page. Later you can connect this to email or a database.";
       formMessage.classList.add("success");
       bookingForm.reset();
-      // keep racquet selection on first option after reset
       racquetSelect.selectedIndex = 0;
     });
   </script>
